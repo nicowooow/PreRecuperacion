@@ -1,8 +1,8 @@
 <?php
 header("Content-Type: application/json");
 
-require_once __DIR__ . '/../Repository/UserService.php.php';
-$ur = new UserRepository();
+require_once __DIR__ . '/../Service/UserService.php';
+$ur = new UserService();
 
 $usuario = $_POST['usuario-l'];
 $contrasena = $_POST['contrasena-l'];

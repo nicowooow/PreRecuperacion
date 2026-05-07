@@ -8,7 +8,7 @@ class LibrosDTO
     public $titulo;
     public $precio;
 
-    public function LibrosDTO($_id, $_isbn, $_titulo, $_precio)
+    public function _construct($_id, $_isbn, $_titulo, $_precio)
     {
         $this->id = $_id;
         $this->isbn = $_isbn;
