@@ -24,14 +24,14 @@ class UserRepository
     public function postUser($username,$contrasena,$roleId)
     {
         $conn = Conexion::getConexion();
-        $sql = "insert into usuarios (username,contrasena,role_id) values (:u,:c,:r) ret";
+        $sql = "insert into usuarios (username,contrasena,role_id) values (:u,:c,:r)";
         $stmt = $conn->prepare($sql);
         $stmt->execute([
             ":u"=> $username,
             ":c"=> $contrasena,
-            ":r"=> $roleId
+            ":r"=> (int)$roleId
         ]);
-        if($stmt->affected_rows > 0){
+        if($stmt->rowCount() > 0){
             return true;
         }
             return false;

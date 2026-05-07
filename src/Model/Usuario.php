@@ -7,7 +7,7 @@ class Usuario
     public $roleId;
     public $contrasena;
 
-    public function _construct($_id, $_username, $_contrasena, $_roleId)
+    public function __construct($_id, $_username, $_contrasena, $_roleId)
     {
         $this->id = $_id;
         $this->username = $_username;

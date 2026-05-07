@@ -1,12 +1,12 @@
 <?php
 
-class usuariosDTO
+class usuarioDTO
 {
     public $id;
     public $username;
     public $roleId;
 
-    public function _construct($_id, $_username, $_roleId)
+    public function __construct($_id, $_username, $_roleId)
     {
         $this->id = $_id;
         $this->username = $_username;

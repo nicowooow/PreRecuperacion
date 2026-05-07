@@ -1,14 +1,14 @@
 <?php
 
 
-class LibrosDTO
+class LibroDTO
 {
     public $id;
     public $isbn;
     public $titulo;
     public $precio;
 
-    public function _construct($_id, $_isbn, $_titulo, $_precio)
+    public function __construct($_id, $_isbn, $_titulo, $_precio)
     {
         $this->id = $_id;
         $this->isbn = $_isbn;

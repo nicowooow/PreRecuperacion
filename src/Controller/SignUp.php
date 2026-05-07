@@ -1,11 +1,12 @@
 <?php
 header("Content-Type: application/json");
 
-require_once __DIR__ . '/../Repository/UserRepository.php';
-$ur = new UserRepository();
+require_once __DIR__ . '/../Service/UserService.php';
+$ur = new UserService();
 
-$usuario = $_POST['usuario-l'];
-$contrasena = $_POST['contrasena-l'];
+$usuario = $_POST['usuario-r'];
+$contrasena = $_POST['contrasena-r'];
+$role = $_POST['role-r'];
 
-$resultado = $ur->register($usuario, $contrasena);
-echo json_encode();
+$resultado = $ur->register($usuario, $contrasena,$role);
+echo json_encode($resultado);
