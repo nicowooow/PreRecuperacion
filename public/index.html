@@ -7,11 +7,26 @@
     <script src="js/session.js"></script>
 </head>
 <body>
-    <h1>¡Bienvenido al ejercicio de práctica de php!</h1>
-    <div id="session" hidden="hidden">
-        <form method="post">
-
-        </form>
-    </div>
+<h1>¡Bienvenido al ejercicio de práctica de php!</h1>
+<div id="session">
+    <form method="post" id="login">
+        <h2>Iniciar sesión</h2>
+        <label for="usuario-l">usuario : </label>
+        <input type="text" name="usuario-l" id="usuario-l">
+        <label for="contrasena-l">contraseña : </label>
+        <input type="text" name="contrasena-l" id="contrasena-l">
+        <input type="submit" value="iniciar sesión">
+    </form>
+</div>
+<div id="content" hidden="hidden">
+    <form method="post" id="register">
+        <h2>Registrar usuario nuevo</h2>
+        <label for="usuario-r">usuario : </label>
+        <input type="text" name="usuario-r" id="usuario-r">
+        <label for="contrasena-r">contraseña : </label>
+        <input type="text" name="contrasena-r" id="contrasena-r">
+        <input type="submit" value="registrarse">
+    </form>
+</div>
 </body>
 </html>

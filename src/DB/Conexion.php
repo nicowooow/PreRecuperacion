@@ -1,7 +1,4 @@
 <?php
-
-namespace DB;
-
 class Conexion
 {
     # definimos la variable
@@ -10,10 +7,10 @@ class Conexion
     public static function getConexion()
     {
 
-        $host = ""; // el host de donde se aloja la base de datos
-        $dbName = ""; // el nombre de la base de datos
-        $dbUser = ""; // el nombre de usuario de la base de datos
-        $dbPassword = ""; // la contraseña del usuario
+        $host = "localhost"; // el host de donde se aloja la base de datos
+        $dbName = "recuperacionphp"; // el nombre de la base de datos
+        $dbUser = "root"; // el nombre de usuario de la base de datos
+        $dbPassword = "Kawaii_456"; // la contraseña del usuario
         $dns = "mysql:host={$host};dbname={$$dbName};charset=utf8";
         try {
             if (self::$conn === null) {
