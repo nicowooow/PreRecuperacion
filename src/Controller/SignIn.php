@@ -1,15 +1,15 @@
 <?php
+//session_start();
 header("Content-Type: application/json");
-
 require_once __DIR__ . '/../Service/UserService.php';
 $ur = new UserService();
 
-$usuario = $_POST['usuario-l'];
-$contrasena = $_POST['contrasena-l'];
+$usuario = $_POST['usuario']??null;
+$contrasena = $_POST['contrasena']??null;
 
-if (!$usuario || !$contrasena || !$usuario && !$contrasena) {
+if (empty($usuario) || empty($contrasena)) {
     echo json_encode(["message" => "usuario o contraseña son incorrectos", "success" => false]);
-    return;
+    exit;
 }
 
 $resultado = $ur->login($usuario, $contrasena);

@@ -1,4 +1,6 @@
 <?php
+//session_start();
 header("Content-Type: application/json");
 
-echo json_encode();
+//session_destroy();
+echo json_encode(["message" => "usuario cerro sesión", "success" => true]);

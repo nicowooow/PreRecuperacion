@@ -13,7 +13,7 @@ class UserService
 
 //        return["c1"=>$contrasena,"c2"=>$user->contrasena];
         if (!password_verify($contrasena, $user->contrasena)) return ["message" => "usuario o contraseña son incorrectos", "success" => false];
-        $userDTO = new usuarioDTO($user->id,$user->usuario,$user->roleId);
+        $userDTO = new usuarioDTO($user->id,$user->username,$user->roleId);
         return ["user" => $userDTO, "message" => "usuario logueado", "success" => true];
 
     }
