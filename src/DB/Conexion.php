@@ -1,4 +1,5 @@
 <?php
+
 class Conexion
 {
     # definimos la variable
@@ -19,7 +20,7 @@ class Conexion
             }
             return self::$conn;
         } catch (PDOException $e) {
-            throw new Exception("error de conexion");
+            throw new Exception("error de conexión interna");
         }
     }
 

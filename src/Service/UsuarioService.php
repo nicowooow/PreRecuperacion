@@ -1,26 +1,26 @@
 <?php
-require_once __DIR__ . '/../Repository/UserRepository.php';
+require_once __DIR__ . '/../Repository/UsuarioRepository.php';
 require_once __DIR__ . '/../DTO/UsuarioDTO.php';
 
-class UserService
+class UsuarioService
 {
     public function login($usuario, $contrasena)
     {
 //        return["u"=>$usuario,"c"=>$contrasena];
-        $ur = new UserRepository();
+        $ur = new UsuarioRepository();
         $user = $ur->getUser($usuario);
         if (!$user) return ["message" => "usuario o contraseña son incorrectos", "success" => false];
 
 //        return["c1"=>$contrasena,"c2"=>$user->contrasena];
-        if (!password_verify($contrasena, $user->contrasena)) return ["message" => "usuario o contraseña son incorrectos", "success" => false];
-        $userDTO = new usuarioDTO($user->id,$user->username,$user->roleId);
+        if (!password_verify($contrasena, $user['contrasena'])) return ["message" => "usuario o contraseña son incorrectos", "success" => false];
+        $userDTO = new usuarioDTO($user['id'], $user['username'], $user['role_id']);
         return ["user" => $userDTO, "message" => "usuario logueado", "success" => true];
 
     }
 
     public function register($usuario, $contrasena, $role)
     {
-        $ur = new UserRepository();
+        $ur = new UsuarioRepository();
         $exite = $ur->getUser($usuario);
 
         if ($exite) return ["message" => "usuario ya existente", "success" => false];

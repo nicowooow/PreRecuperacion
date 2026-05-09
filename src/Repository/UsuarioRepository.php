@@ -1,8 +1,7 @@
 <?php
-require_once __DIR__.'/../DB/Conexion.php';
-require_once __DIR__.'/../Model/Usuario.php';
+require_once __DIR__ . '/../DB/Conexion.php';
 
-class UserRepository
+class UsuarioRepository
 {
     public function getUser($username)
     {
@@ -10,31 +9,31 @@ class UserRepository
         $sql = "select * from usuarios u where u.username = :u limit 1";
         $stmt = $conn->prepare($sql);
         $stmt->execute([
-           ":u"=> $username
+            ":u" => $username
         ]);
 
         $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if(!$usuario) return null;
+        if (!$usuario) return null;
 
-        return new Usuario($usuario['id'],$usuario['username'],$usuario['contrasena'],$usuario['role_id']);
+        return $usuario;
 
     }
 
-    public function postUser($username,$contrasena,$roleId)
+    public function postUser($username, $contrasena, $roleId)
     {
         $conn = Conexion::getConexion();
         $sql = "insert into usuarios (username,contrasena,role_id) values (:u,:c,:r)";
         $stmt = $conn->prepare($sql);
         $stmt->execute([
-            ":u"=> $username,
-            ":c"=> $contrasena,
-            ":r"=> (int)$roleId
+            ":u" => $username,
+            ":c" => $contrasena,
+            ":r" => (int)$roleId
         ]);
-        if($stmt->rowCount() > 0){
+        if ($stmt->rowCount() > 0) {
             return true;
         }
-            return false;
+        return false;
 
     }
 }
