@@ -9,8 +9,7 @@ $precio = $_GET['precio'] ?? 0;
 //exit;
 $ls = new LibroService();
 if ($precio < 0) {
-    $resultado = $ls->BuscarLibrosTitulo($titulo);
-    echo json_encode($resultado);
+    echo json_encode(["libros" => [], "message" => "datos de entrada incorrectos", "success" => false]);
     exit;
 }
 $resultado = $ls->BuscarLibros($titulo, $precio);

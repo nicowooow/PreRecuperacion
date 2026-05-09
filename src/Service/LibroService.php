@@ -39,21 +39,10 @@ class LibroService
         foreach ($datos as $dato) {
             $lista[] = new LibroDTO($dato['id'], $dato['isbn'], $dato['titulo'], $dato['precio']);
         }
-        return $lista;
+        return ["libros" => $lista, "message" => "estos son los libros que se encontraron", "success" => true];
 
     }
 
-    public function BuscarLibrosTitulo($titulo)
-    {
-        $lr = new LibroRepository();
-        $datos = $lr->searchLibrosTitulo($titulo);
-        $lista = [];
-        foreach ($datos as $dato) {
-            $lista[] = new LibroDTO($dato['id'], $dato['isbn'], $dato['titulo'], $dato['precio']);
-        }
-        return $lista;
-
-    }
 }
 
 //$lista = [];
